@@ -700,7 +700,27 @@
 
 # -----------------------------------------------
 
+# class PowTow:
+#     def __init__(self, max_p):
+#         self.n = 0
+#         self.max_p = max_p
+#
+#     def __iter__(self):
+#         return self
+#
+#     def __next__(self):
+#         if self.n <= self.max_p:
+#             result = self.n ** 2
+#             self.n += 1
+#             return result
+#         raise StopIteration
 
+# obj = PowTow(5)
+# for i in obj:
+#     print(i)
+
+# print(next(obj))
+# print(next(obj))
 
 # -----------------------------------------------
 
