@@ -724,33 +724,96 @@
 
 # -----------------------------------------------
 
-from functools import update_wrapper
+# from functools import update_wrapper
+#
+#
+# class Dec:
+#     def __init__(self, func):
+#         update_wrapper(self, func)
+#         self.func = func
+#
+#     def __call__(self):
+#         print('*****')
+#         self.func()
+#         print('*****')
+#
+#
+# @Dec
+# def test():
+#     print('testing def')
+#
+# test()
+#
+#
+#
+# @Dec
+# class Test:
+#     pass
+#
+# obj = Test
+# obj()
 
+# -----------------------------------------------
 
-class Dec:
-    def __init__(self, func):
-        update_wrapper(self, func)
-        self.func = func
+# class Test:
+#     def __init__(self, rgb, name):
+#         self.rgb = rgb
+#         self.name = name
+#
+#     @property
+#     def name(self):
+#         return self._name
+#
+#     @name.setter
+#     def name(self, value):
+#         if value:
+#             self._name = value
+#         else:
+#             raise ValueError('Invalid')
+#
+#     @name.deleter
+#     def name(self):
+#         del self._name
+#
+#
+# obj = Test(11228, 'red')
+# obj.name = 'blue'
+# print(obj.name)
+# print(obj.rgb)
 
-    def __call__(self):
-        print('*****')
-        self.func()
-        print('*****')
+# -----------------------------------------------
 
-
-@Dec
-def test():
-    print('testing def')
-
-test()
-
-
-
-@Dec
-class Test:
-    pass
-
-obj = Test
-obj()
+# class Descriptor:
+#     def __set_name__(self, owner, name):
+#         self.name = name
+#
+#     def __get__(self, instance, owner):
+#         return instance.__dict__[self.name]
+#
+#     def __set__(self, instance, value):
+#         if 0 < len(value) < 10:
+#             instance.__dict__[self.name] = value
+#         else:
+#             raise ValueError("Invalid")
+#
+#     def __delete__(self, instance):
+#         del instance.__dict__[self.name]
+#
+#
+# class Parent:
+#     child_name = Descriptor()
+#     father_name = Descriptor()
+#     mother_name = Descriptor()
+#
+#     def __init__(self, child, father, mother):
+#         self.child_name = child
+#         self.father_name = father
+#         self.mother_name = mother
+#
+#
+# obj = Parent('a', 'b', 'c')
+# print(obj.__dict__)
+# obj.child_name = 'd'
+# print(obj.__dict__)
 
 # -----------------------------------------------
