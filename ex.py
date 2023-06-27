@@ -724,10 +724,33 @@
 
 # -----------------------------------------------
 
+from functools import update_wrapper
+
+
+class Dec:
+    def __init__(self, func):
+        update_wrapper(self, func)
+        self.func = func
+
+    def __call__(self):
+        print('*****')
+        self.func()
+        print('*****')
+
+
+@Dec
+def test():
+    print('testing def')
+
+test()
 
 
 
+@Dec
+class Test:
+    pass
 
+obj = Test
+obj()
 
-
-
+# -----------------------------------------------
