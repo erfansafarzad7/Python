@@ -817,3 +817,25 @@
 # print(obj.__dict__)
 
 # -----------------------------------------------
+
+class FileManager:
+    def __init__(self, file_name, mode):
+        self.file_name = file_name
+        self.mode = mode
+        self.file = None
+
+    def __enter__(self):
+        print('start')
+        self.file = open(self.file_name, self.mode)
+        return self.file
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        print('end')
+        self.file.close()
+
+
+with FileManager("file.txt", 'w') as f:
+    print('file created')
+    f.write('hi!')
+
+# -----------------------------------------------
